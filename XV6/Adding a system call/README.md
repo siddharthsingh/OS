@@ -13,30 +13,40 @@ For adding the system call we need to make changes in the follwing files:
 5. sysproc.c
 
 First we add the call to the list in **syscall.c**.
-'extern int sys_hello(void);' 
-'[SYS_hello]   sys_hello,'
+
+`extern int sys_hello(void);` 
+
+`[SYS_hello]   sys_hello,`
 
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/1.png)
+
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/2.png)
 
 
 
 Next, assign it a number in **syscall.h
-'#define SYS_hello  22'
+
+`#define SYS_hello  22`
 
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/3.png)
 
 
 give it a prototype in **user.h**:
-'int hello(int);'
+
+`int hello(int);`
+
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/4.png)
 
+
 Add it to **usys.S**, which generates the user-space assembly code for it
-'SYSCALL(hello)'
+
+`SYSCALL(hello)`
+
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/5.png)
 
 Finally we add the implementation somewhere (e.g. **sysproc.c**)
-'''
+
+```
 int
 sys_hello(void) {
     int n;
@@ -46,9 +56,11 @@ sys_hello(void) {
     return 0;
 }
 
+```
+
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/6.png)
 
-'''
+
 
 
 
@@ -56,6 +68,8 @@ Testing
 ---
 
 To test if the system call works, create a c file and use the system call in it. Remember to add the c file in Makefile so that you can use it.
+
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/7.png)
+
 
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/8.png)
