@@ -1,7 +1,10 @@
-Adding a system call in XV6 OS
+#*Adding a system call in XV6 OS*
+
 In this I will show you how to add a system call to XV6 OS. We will just add a simple helloworld systemm call which will print hello world and the argument passed to the the system call.
 
-Steps:
+
+##*Steps:*
+
 For adding the system call we need to make changes in the follwing files:
 syscall.c
 syscall.h
