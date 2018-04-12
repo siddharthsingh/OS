@@ -12,7 +12,7 @@ For adding the system call we need to make changes in the follwing files:
 4. usys.S
 5. sysproc.c
 
-First we add the call to the list in **syscall.c**.
+1. First we add the call to the list in **syscall.c**.
 
 `extern int sys_hello(void);` 
 
@@ -24,27 +24,27 @@ First we add the call to the list in **syscall.c**.
 
 
 
-Next, assign it a number in **syscall.h
+2. Next, assign it a number in **syscall.h
 
 `#define SYS_hello  22`
 
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/3.png)
 
 
-give it a prototype in **user.h**:
+3. give it a prototype in **user.h**:
 
 `int hello(int);`
 
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/4.png)
 
 
-Add it to **usys.S**, which generates the user-space assembly code for it
+4. Add it to **usys.S**, which generates the user-space assembly code for it
 
 `SYSCALL(hello)`
 
 ![image](https://github.com/siddharthsingh/OS/blob/master/XV6/images/5.png)
 
-Finally we add the implementation somewhere (e.g. **sysproc.c**)
+5. Finally we add the implementation somewhere (e.g. **sysproc.c**)
 
 ```
 int
