@@ -37,7 +37,7 @@ Making a system call
 ---
 Each process has a ticket value assigned to it. So to implement this we need to change the proc structure which holds the information about a process and add int tickets which will store its ticket value. 
 
-Follow this blog to know how to add system call. In the part where you have to write the actual implementation use the following code which sets the number of tickets for a process.
+Follow [this](https://github.com/siddharthsingh/OS/tree/master/XV6/Adding%20a%20system%20call) to know how to add system call. In the part where you have to write the actual implementation use the following code which sets the number of tickets for a process.
 ```
 int sys_settickets(void)
 
