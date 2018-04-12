@@ -89,6 +89,7 @@ Now, after the process runs, we need to put a break at the end of for loop which
 1. If we don't break the value of total tickets passed will keep on increasing and will always be higher than the random number.
 2. Also, after we run a winning process we need to recompute the total number of tickets of all RUNNABLE processes as that value might have changed.
 
+Look at the code in proc.c in this directory to see the complete code.
 
 
 
