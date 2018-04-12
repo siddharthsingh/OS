@@ -24,22 +24,14 @@ Scheduler picks a random number from 1 to 100. If the picked no. is from 1 to 60
 
 Steps
 ---
-We need to do the following things to implement lottery scheduling in XV6
-
-Make a system call which allows you to set the tickets for a process.
-
-Code to generate a random number.
-
-In the scheduler function count the total number of tickets for all processes that are runnable.
-
-Generate a random number between 0 and the total tickets calculated above.
-
-When looping through the processes keep the counter of the total number of tickets passed.
-
-Just when the counter becomes greater the random value we got, run the process.
-
-Put a break at the end of for loop so that we don't execute the processes following the process we just run.
-
+1. We need to do the following things to implement lottery scheduling in XV6
+2. Make a system call which allows you to set the tickets for a process.
+3. Code to generate a random number.
+4. In the scheduler function count the total number of tickets for all processes that are runnable.
+5. Generate a random number between 0 and the total tickets calculated above.
+6. When looping through the processes keep the counter of the total number of tickets passed.
+7. Just when the counter becomes greater the random value we got, run the process.
+8. Put a break at the end of for loop so that we don't execute the processes following the process we just run.
 
 Making a system call
 ---
@@ -94,27 +86,8 @@ For lottery scheduling, we need the total number of tickets of the processes tha
 Now we generate a random number between 0 and the total number of tickets. After we have the random number we execute the for loop that runs processes. When this for loop loops over processes, we keep counting the total number of tickets passed of processed that are in a RUNNABLE state. As soon as the total tickets passed get higher than the random number we got we run that process. 
 
 Now, after the process runs, we need to put a break at the end of for loop which executes all processes. This is because:
-
-If we don't break the value of total tickets passed will keep on increasing and will always be higher than the random number.
-
-Also, after we run a winning process we need to recompute the total number of tickets of all RUNNABLE processes as that value might have changed.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. If we don't break the value of total tickets passed will keep on increasing and will always be higher than the random number.
+2. Also, after we run a winning process we need to recompute the total number of tickets of all RUNNABLE processes as that value might have changed.
 
 
 
